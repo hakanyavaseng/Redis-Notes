@@ -6,14 +6,50 @@
 <h4>Sliding Time:</h4>
 <p>Sliding Time indicates the retention of cached data in memory for a specified period. Access to the cache within the specified time period will extend the lifespan of the data. Otherwise, if there is no access within the specified timeframe, the cache will be cleared.</p>
 
-<h4>Distributed Caching İşlem Sırası</h4>
+<h4>Order of Operations in Distributed Caching</h4>
 
 <ul>
-    <li>StackExchangeRedis kütüphanesi yüklenir.</li>
-    <li>AddStackExchangeRedisCache servisi uygulama eklenir.</li>
-    <li>IDistributedCache referansı inject edilir.</li>
-    <li>SetString metodu ile metinsel, Set metodu ile de binary olarak veriler Redis server'a cachlenebilir. (GetString & Get)</li>
-    <li>Remove metodu ile cachelenmiş veri silinebilir.</li>
+    <li>The StackExchangeRedis library is loaded.</li>
+    <li>The AddStackExchangeRedisCache service is added to the application.</li>
+    <li>The IDistributedCache reference is injected.</li>
+    <li>Data can be cached to the Redis server either textually with the SetString method or binary with the Set method. (GetString & Get)</li>
+    <li>Cached data can be removed using the Remove method.</li>
 </ul>
 
+<hr>
 
+<h3>05 - Redis Pub/Sub - MessageBroker </h3>
+
+Redis her ne kadar caching süreçlerinde kullanılıyor olsa da özünde bir pub/sub işlemi yapabilen bir message broker özelliği de barındırmaktadır. 
+Redis'te pub/sub işlemini gerçekleştirebilmek için birkaç farklı yol mevcuttur:
+
+<ul>
+    <li>Redis CLI</li>
+    <li>Redis API</li>
+    <li>Redis Insight</li>
+</ul>
+
+<h4>Redis CLI</h4>
+
+<ul>
+    <li>Open the Redis CLI in your terminal by typing `redis-cli`.</li>
+    <li>To subscribe to a channel, use the `subscribe` command followed by the channel name. For example: `subscribe myChannel`.</li>
+    <li>In another Redis CLI instance, you can publish a message to the channel using the `publish` command followed by the channel name and the message. For example: `publish myChannel "Hello, World!"`.</li>
+    <li>The first Redis CLI instance will receive the message published to the channel.</li>
+</ul>
+
+IMAGE Redis CLI
+
+<h4>Redis Insight</h4>
+
+IMAGE Redis_Insight_Pub-Sub
+
+<h4>Redis API</h4>
+
+<ul>
+    <li>Get StackExchange.Redis from NuGet.</li>
+    <li>Create a `ConnectionMultiplexer` instance.</li>
+    <li>Subscribe to a channel with `GetSubscriber().Subscribe()`.</li>
+    <li>Send messages with `GetSubscriber().Publish()`.</li>
+    <li>Handle incoming messages in your callback function.</li>
+</ul>
