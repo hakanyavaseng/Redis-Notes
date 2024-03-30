@@ -66,3 +66,27 @@
 </ul>
 
 <hr>
+
+<h3>06 - Redis Replication</h3>
+
+<p>In Redis operations, ensuring the security of data on the server and keeping a copy may be necessary. Redis Replication behavior establishes a resilient infrastructure against situations like data loss.</p>
+
+<p>In the Replication behavior, the server to be modeled/replicated is called the "master." The server(s) receiving the replication are called "slaves."</p>
+
+<p>Slaves are read-only servers, so data can be read only, but not be written directly.</p>
+
+<h4>Setting up Redis Master-Slave with Docker</h4>
+
+<ol>
+    <li>Create master: docker run -p 1453:6379 --name redis-master -d redis</li> 
+    <li>Create slave: docker run -p 1453:6379 --name redis-slave -d redis</li>
+    <li>Get redis-master's IP: docker inspect -f "{{.NetworkSettings.IpAddress }}" redis-master</li>
+    <li>Execute command in redis-slave: docker exec -it redis-slave redis-cli slaveof [IP OF MASTER] 6379 (Default port is given)</li>  
+    <li>To get the replication information of a server => info replication (can be written inside server cli) </li>
+</ol>
+
+
+
+
+
+
