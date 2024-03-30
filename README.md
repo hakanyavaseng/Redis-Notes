@@ -53,3 +53,17 @@ IMAGE Redis_Insight_Pub-Sub
     <li>Send messages with `GetSubscriber().Publish()`.</li>
     <li>Handle incoming messages in your callback function.</li>
 </ul>
+
+<h4>Redis Pattern-Matching Subscription with .NET</h4>
+
+<ul>
+    <li>Install the StackExchange.Redis NuGet package to your .NET project.</li>
+    <li>Create a `ConnectionMultiplexer` instance to connect to your Redis server.</li>
+    <li>Get a subscriber from the `ConnectionMultiplexer` instance using the `GetSubscriber()` method.</li>
+    <li>Subscribe to a pattern using the `Subscribe` method on the subscriber, passing in the pattern and a callback function. The pattern can include wildcard characters like `*`.</li>
+    <li>In the callback function, handle incoming messages that match the pattern. The function will be called whenever a message is published on a channel that matches the pattern.</li>
+    <li>To publish messages, use the `Publish` method on the subscriber, passing in the channel and the message.</li>
+</ul>
+
+<hr>
+
