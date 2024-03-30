@@ -20,8 +20,8 @@
 
 <h3>05 - Redis Pub/Sub - MessageBroker </h3>
 
-Redis her ne kadar caching süreçlerinde kullanılıyor olsa da özünde bir pub/sub işlemi yapabilen bir message broker özelliği de barındırmaktadır. 
-Redis'te pub/sub işlemini gerçekleştirebilmek için birkaç farklı yol mevcuttur:
+<p>Although Redis is primarily used in caching processes, it also functions as a message broker capable of performing pub/sub operations.</p>
+<p>To achieve pub/sub operations in Redis, there are several methods:</p>
 
 <ul>
     <li>Redis CLI</li>
@@ -66,4 +66,3 @@ Redis'te pub/sub işlemini gerçekleştirebilmek için birkaç farklı yol mevcu
 </ul>
 
 <hr>
-
