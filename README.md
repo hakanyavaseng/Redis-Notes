@@ -38,11 +38,11 @@ Redis'te pub/sub işlemini gerçekleştirebilmek için birkaç farklı yol mevcu
     <li>The first Redis CLI instance will receive the message published to the channel.</li>
 </ul>
 
-IMAGE Redis CLI
+<img src="https://github.com/hakanyavaseng/Redis-Notes/blob/main/Screenshots/Redis_CLI.png?raw=true"/>
 
 <h4>Redis Insight</h4>
 
-IMAGE Redis_Insight_Pub-Sub
+<img src="https://github.com/hakanyavaseng/Redis-Notes/blob/main/Screenshots/Redis_Insight_Pub-Sub.png?raw=true"/>
 
 <h4>Redis API</h4>
 
